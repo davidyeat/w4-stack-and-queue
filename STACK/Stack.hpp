@@ -46,6 +46,11 @@ class stack{
         }
         T peek(){
             // Implementation goes here
+            if(top == nullptr){
+                count << "Stack is empty" << endl;
+                return false;
+            }
+            return top->data;
         }
         bool empty(){
             // Implementation goes here
