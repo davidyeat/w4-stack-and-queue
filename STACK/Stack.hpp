@@ -29,6 +29,16 @@ class stack{
         // T is now valid as a return type
         T pop(){
             // Implementation goes here
+            if(top == nullptr){
+                count << "Stack Underflow" << endl;
+                return -1;
+            }
+            Node<T> *temp = top;
+            top = top->next;
+            T val = temp->data;
+
+            delete temp;
+            return val;
         }
 
         T peek(){
