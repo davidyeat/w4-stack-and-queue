@@ -1,14 +1,16 @@
 #include<iostream>
+#include<stdexcept>
 
 using namespace std;
 
-// This template definition for Node is correct
+// This template definition for Node 
 template <typename T>
 struct Node{
     T data;
     Node* next;
 };
 
+// This template definition for Stack
 template <typename T> 
 class stack{
     private:
@@ -24,9 +26,9 @@ class stack{
         // push needs to accept a value of type T
         void push(T value){
             // Implementation goes here
-            Node<T>* newNode = new Node{value, top};
+            Node<T>* newNode = new Node<T>{value, top};
             top = newNode;
-            cout<< "You just create \" "<<newNode <<" \" \n";
+            cout<< "You just create \" " <<newNode->data <<" \" \n";
 
         }
 
@@ -34,8 +36,8 @@ class stack{
         T pop(){
             // Implementation goes here
             if(top == nullptr){
-                count << "Stack Underflow" << endl;
-                return -1;
+                cout << "Stack Underflow" << endl;
+                throw runtime_error("Cannot pop from empty stack");
             }
             Node<T> *temp = top;
             top = top->next;
@@ -46,15 +48,15 @@ class stack{
         }
         T peek(){
             // Implementation goes here
-            if(top == nullptr){
-                count << "Stack is empty" << endl;
-                return false;
+            if(empty()){
+                throw runtime_error("Cannot peek at empty stack");
             }
             return top->data;
         }
         bool empty(){
             // Implementation goes here
             if(top == nullptr){
+                cout << "Stack is empty" << endl;
                 return true;
             }
             return false;
