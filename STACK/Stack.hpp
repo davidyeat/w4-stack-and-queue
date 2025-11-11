@@ -37,5 +37,9 @@ class stack{
 
         bool empty(){
             // Implementation goes here
+            if(top == nullptr){
+                return true;
+            }
+            return false;
         }
 };
