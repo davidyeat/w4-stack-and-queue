@@ -24,11 +24,25 @@ class stack{
         // push needs to accept a value of type T
         void push(T value){
             // Implementation goes here
+            Node<T>* newNode = new Node{value, top};
+            top = newNode;
+            cout<< "You just create \" "<<newNode <<" \" \n";
+
         }
 
         // T is now valid as a return type
         T pop(){
             // Implementation goes here
+            if(top == nullptr){
+                count << "Stack Underflow" << endl;
+                return -1;
+            }
+            Node<T> *temp = top;
+            top = top->next;
+            T val = temp->data;
+
+            delete temp;
+            return val;
         }
 
         T peek(){
