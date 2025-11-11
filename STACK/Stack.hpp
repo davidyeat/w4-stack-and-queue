@@ -44,11 +44,9 @@ class stack{
             delete temp;
             return val;
         }
-
         T peek(){
             // Implementation goes here
         }
-
         bool empty(){
             // Implementation goes here
             if(top == nullptr){
