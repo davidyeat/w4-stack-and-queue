@@ -17,15 +17,27 @@ class Queue{
         Order QueueList[Max_Size];
         int front;
         int rear;
+        int count; 
+        
     public:
-        Queue():front(0), rear(0){}
+
+        Queue():front(0), rear(0), count(0){} 
+        
+        // : Update isEmpty to use count
         bool isEmpty() const {
-            return front == rear;}
-        bool isFull()const { 
-            return (rear + 1) % Max_Size == front;
+            return count == 0; // return front == rear is now ambiguous
         }
+        
+        //  Update isFull to use count
+        bool isFull()const { 
+            return count == Max_Size; // Queue is full when count equals Max_Size
+            //  return (rear + 1) % Max_Size == front; (limits capacity to 7)
+        }
+        
+        //  Update size to simply return count
         int size() const {
-            return (rear - front + Max_Size) % Max_Size;
+            return count;
+            // Original: return (rear - front + Max_Size) % Max_Size;
         }
 
         int capacity() const {
@@ -40,6 +52,8 @@ class Queue{
             }
             QueueList[rear] = Order{rear, drink};
             rear = (rear + 1) % Max_Size;
+            // FIX 6: Increment count
+            count++; 
             return true;
         }
 
@@ -49,9 +63,11 @@ class Queue{
             }
             Order item = QueueList[front];
             front = (front + 1) % Max_Size;
+            //  Decrement count
+            count--; 
             return item;
-
         }
+        
         Order peek(){
             if (isEmpty()) throw runtime_error("Queue is empty");
             return QueueList[front];
@@ -63,7 +79,8 @@ class Queue{
                 return;
             }
 
-            int cnt = size();
+            // size() is now simply count, which is correct
+            int cnt = size(); 
             cout << "Queue contents (" << cnt << "):\n";
             int idx = front;
             for (int i = 0; i < cnt; ++i){

@@ -8,12 +8,24 @@ int main(){
     order.enqueue("Latte");
     order.enqueue("Cappuccino");
     order.enqueue("Espresso");
+    order.enqueue("Latte");
+    order.enqueue("Cappuccino");
+    order.enqueue("Espresso");
+    order.enqueue("Latte");
+    order.enqueue("Cappuccino");
+    order.enqueue("Cappuccino");
 
     cout << "Current Queue Size: " << order.size() << endl;
     order.display();
     
     Order nextOrder = order.dequeue();
-    cout << "Dequeued Order: num_order=" << nextOrder.num_order
+    cout << "Dequeued Order: num_order= " << nextOrder.num_order
          << " drinkType=\"" << nextOrder.drinkType << "\"" << endl;
+
+   
+    cout << "Current Queue Size: " << order.size() << endl;
+    order.enqueue("Espresso");
+    order.display();
+
     return 0;
 }
