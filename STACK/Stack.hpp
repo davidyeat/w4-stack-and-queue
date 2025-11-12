@@ -22,6 +22,15 @@ class stack{
         stack() {
             top = nullptr; // Always initialize pointers!
         }
+        ~stack() {
+            Node<T>* current = top;
+            while (current != nullptr) {
+                Node<T>* nextNode = current->next;
+                delete current; // Free the memory for the current node
+                current = nextNode; // Move to the next node
+            }
+            top = nullptr; // Ensure top is reset after cleanup
+        }
 
         // push needs to accept a value of type T
         void push(T value){
