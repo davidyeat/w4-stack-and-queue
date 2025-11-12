@@ -13,7 +13,6 @@ int main(){
     order.enqueue("Espresso");
     order.enqueue("Latte");
     order.enqueue("Cappuccino");
-    order.enqueue("Cappuccino");
 
     cout << "Current Queue Size: " << order.size() << endl;
     order.display();
@@ -23,9 +22,5 @@ int main(){
          << " drinkType=\"" << nextOrder.drinkType << "\"" << endl;
 
    
-    cout << "Current Queue Size: " << order.size() << endl;
-    order.enqueue("Espresso");
-    order.display();
-
     return 0;
 }
