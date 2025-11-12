@@ -24,7 +24,6 @@ class Queue{
             return (rear + 1) % Max_Size == front;
         }
         int size() const {
-            
             return (rear - front + Max_Size) % Max_Size;
         }
 
@@ -35,11 +34,9 @@ class Queue{
         bool enqueue(string drink){
             //  Check for Overflow (Full Queue)
             if (isFull()) {
-                std::cout << "Error: Queue is full (Overflow)." << std::endl;
+                cout << "Error: Queue is full (Overflow)." << endl;
                 return false;
             }
-
-            
             QueueList[rear] = Order{rear, drink};
             rear = (rear + 1) % Max_Size;
             return true;
