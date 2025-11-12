@@ -1,7 +1,8 @@
 #include<iostream>
 #include<string>
 #include<stdexcept>
-
+#ifndef QUEUE_HPP
+#define QUEUE_HPP
 using namespace std;
 
 #define Max_Size 8
@@ -50,11 +51,11 @@ class Queue{
             front = (front + 1) % Max_Size;
             return item;
 
-        };
+        }
         Order peek(){
             if (isEmpty()) throw runtime_error("Queue is empty");
             return QueueList[front];
-        };
+        }
 
         void display(){
             if (isEmpty()){
@@ -71,6 +72,7 @@ class Queue{
                      << " drinkType=\"" << o.drinkType << "\"\n";
                 idx = (idx + 1) % Max_Size;
             }
-        };
+        }
 };
 
+#endif // QUEUE_HPP

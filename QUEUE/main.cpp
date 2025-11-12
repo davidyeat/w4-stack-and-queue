@@ -11,6 +11,7 @@ int main(){
 
     cout << "Current Queue Size: " << order.size() << endl;
     order.display();
+    
     Order nextOrder = order.dequeue();
     cout << "Dequeued Order: num_order=" << nextOrder.num_order
          << " drinkType=\"" << nextOrder.drinkType << "\"" << endl;
