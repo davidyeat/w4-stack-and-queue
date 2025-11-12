@@ -4,15 +4,15 @@ using namespace std;
 
 int main(){
     Queue order;
-    // Enqueue some orders
+
     order.enqueue("Latte");
     order.enqueue("Cappuccino");
     order.enqueue("Espresso");
 
     cout << "Current Queue Size: " << order.size() << endl;
-
-    // Dequeue and display orders
     order.display();
-
+    Order nextOrder = order.dequeue();
+    cout << "Dequeued Order: num_order=" << nextOrder.num_order
+         << " drinkType=\"" << nextOrder.drinkType << "\"" << endl;
     return 0;
 }
